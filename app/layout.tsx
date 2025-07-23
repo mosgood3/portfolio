@@ -19,14 +19,22 @@ export const metadata: Metadata = {
   keywords: ["Data Developer", "React", "Next.js", "TypeScript", "Web Development", "Portfolio"],
   authors: [{ name: "Matthew Osgood" }],
   creator: "Matthew Osgood",
-  publisher: "Your Name",
+  publisher: "Matthew Osgood",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://mosgood.me",
-    title: "Your Name - Full Stack Developer Portfolio",
-    description: "Experienced full-stack developer specializing in React, Next.js, and modern web technologies.",
-    siteName: "Your Name Portfolio",
+    title: "Matthew Osgood - Data Developer Portfolio",
+    description: "Experienced data developer specializing in React, Next.js, and modern web technologies.",
+    siteName: "Matthew Osgood Portfolio",
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "Matthew Osgood Portfolio Icon",
+      },
+    ],
   },
 
   robots: {
