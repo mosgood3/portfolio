@@ -21,7 +21,7 @@ export default function Hero({ personalInfo }: HeroProps) {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center overflow-hidden pt-16 md:pt-0"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-0"
       style={{
         background: `
           radial-gradient(ellipse at top, #1e1b4b 0%, #0f0a1a 50%, #000000 100%),
@@ -47,7 +47,7 @@ export default function Hero({ personalInfo }: HeroProps) {
       <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-16 items-center">
           {/* Left Column - Hero Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1 lg:col-span-2">
+          <div className="text-center lg:text-left order-1 lg:order-1 lg:col-span-2">
             <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
               Welcome to My Portfolio
             </h1>
@@ -96,7 +96,7 @@ export default function Hero({ personalInfo }: HeroProps) {
           </div>
           
           {/* Right Column - Profile Card */}
-          <div className="flex justify-center lg:justify-end xl:justify-center order-1 lg:order-2 relative px-4 sm:px-8 lg:px-0">
+          <div className="flex justify-center lg:justify-end xl:justify-center order-2 lg:order-2 relative px-4 sm:px-8 lg:px-0">
             <ProfileCard 
               name={info.name}
               avatarUrl="/me.png"

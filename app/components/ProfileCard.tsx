@@ -277,7 +277,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           className="absolute inset-0 rounded-2xl"
           style={{
             backgroundImage: `url(${avatarUrl})`,
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
