@@ -3,10 +3,10 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
 
 const DEFAULT_BEHIND_GRADIENT =
-  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)";
+  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(36,90%,85%,var(--card-opacity)) 4%,hsla(36,70%,75%,calc(var(--card-opacity)*0.75)) 10%,hsla(36,40%,65%,calc(var(--card-opacity)*0.5)) 50%,hsla(36,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#e3b505c4 0%,#d9762b00 100%),radial-gradient(100% 100% at 50% 50%,#d9762bff 1%,#2a9d8f00 76%),conic-gradient(from 124deg at 50% 50%,#d9762bff 0%,#e3b505ff 40%,#2a9d8fff 60%,#d9762bff 100%)";
 
 const DEFAULT_INNER_GRADIENT =
-  "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)";
+  "linear-gradient(145deg,#6b42268c 0%,#e3b50544 100%)";
 
 const ANIMATION_CONFIG = {
   SMOOTH_DURATION: 600,
@@ -264,9 +264,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         maxWidth: '384px',
       }}
     >
-      <section 
-        ref={cardRef} 
-        className="relative w-full h-full rounded-2xl overflow-hidden transform-gpu transition-transform duration-200 ease-out"
+      <section
+        ref={cardRef}
+        className="relative w-full h-full rounded-xl overflow-hidden border-2 border-ink shadow-retro-lg transform-gpu transition-transform duration-200 ease-out"
         style={{
           background: showBehindGradient ? 'var(--behind-gradient)' : 'transparent',
           transform: enableTilt ? 'rotateX(var(--rotate-x)) rotateY(var(--rotate-y))' : 'none',
@@ -283,8 +283,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           }}
         />
         
-        {/* Dark gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-2xl" />
+        {/* Warm gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#3a2e21]/85 via-[#3a2e21]/20 to-transparent rounded-xl" />
         
         {/* Shine effect */}
         <div 
@@ -305,7 +305,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         {/* Name at bottom */}
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-white drop-shadow-lg">{name}</h3>
+            <h3 className="font-display text-2xl font-extrabold text-cream drop-shadow-lg">{name}</h3>
           </div>
         </div>
       </section>

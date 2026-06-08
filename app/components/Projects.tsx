@@ -7,70 +7,69 @@ interface ProjectsProps {
 const defaultProjects: Project[] = [
   {
     id: "1",
-    title: "Mortgage Data ETL Pipeline",
-    description: "Built a comprehensive ETL pipeline processing millions of mortgage records daily, with robust validation, transformation, and enrichment. Enabled automated reporting and real-time dashboards for improved compliance monitoring, risk assessment, and operational efficiency.",
-    technologies: ["Python", "JAMS", "SQL Server", "Pandas", "ETL"],
+    title: "Mortgage Lakehouse ETL on Microsoft Fabric",
+    description: "Production PySpark pipelines on Microsoft Fabric that ingest, cleanse, deduplicate, and transform mortgage and loan-servicing data across bronze, silver, and gold lakehouse layers. Modeled raw sources into SCD Type 2 datasets for point-in-time history and eliminated 59 Spark cold starts from a high-cost refresh, materially reducing CU consumption on an F64 capacity.",
+    technologies: ["PySpark", "Microsoft Fabric", "Delta Lake", "SCD Type 2", "SQL Server", "T-SQL"],
   },
   {
     id: "2",
-    title: "Matthew C. Molloy Memorial foundation",
-    description: "Built a dynamic web platform for a cancer nonprofit organization that enables users to securely donate, register for an annual charity basketball tournament, and access event details—streamlining engagement and boosting fundraising efforts through an intuitive and mobile-friendly interface.",
-    technologies: ["Python", "Next.js", "Stripe", "Vercel", "Supabase"],
+    title: "Sell Local — Cottage-Food SaaS Platform",
+    description: "Founder and full-stack engineer of a production multi-tenant SaaS for cottage-food businesses: storefronts, Stripe Connect payments, pickup ordering, a notifications hub, bio-link pages, and digital product sales. Architected end-to-end with a TypeScript/Next.js frontend, Supabase/PostgreSQL backend, and AWS SES transactional email, with live customers in production.",
+    technologies: ["Next.js", "TypeScript", "Supabase", "Stripe Connect", "AWS SES", "Vercel"],
+    liveUrl: "https://selllocal.app"
+  },
+  {
+    id: "3",
+    title: "Mortgage Servicing AI Agents (RAG)",
+    description: "Hosted open-source LLMs (Llama 3) and built RAG pipelines with embeddings and vector search to replicate complex human tasks hindered by unstructured data—enabling automated document analysis, decision-making, and workflow execution to power internal automation.",
+    technologies: ["Python", "Llama 3", "RAG", "Vector Search", "LangChain"],
+    githubUrl: "https://github.com/mosgood3/langchain"
+  },
+  {
+    id: "4",
+    title: "Matthew C. Molloy Memorial Foundation",
+    description: "Built a Next.js + Supabase + Stripe tournament registration platform with real-time updates and secure authentication for an annual charity basketball event, letting users securely donate, register, and access event details through a mobile-friendly interface.",
+    technologies: ["Next.js", "Supabase", "Stripe", "Vercel"],
     githubUrl: "https://github.com/mosgood3/MolloyFoundation",
     liveUrl: "https://www.matthewcmolloyfoundation.org/"
   },
   {
-    id: "3",
-    title: "Mortgage Servicing AI agents",
-    description: "Developed AI agents for mortgage servicing to replicate complex human tasks typically hindered by unstructured data, enabling automated document analysis, decision-making, and workflow execution—boosting accuracy, speed, and operational scalability.",
-    technologies: ["Python", "LangChain", "LLM APIs", "SQLAlchamey"],
-    githubUrl: "https://github.com/mosgood3/langchain"
-  },
-  {
     id: "5",
     title: "Sour The Bakery",
-    description: "Built a custom bakery website with a full-featured admin panel, empowering the baker to easily manage products, track and fulfill orders, and control inventory and content—streamlining day-to-day operations with an intuitive, user-friendly interface.",
-    technologies: ["Next.js", "TypeScript", "FireBase","Tailwind CSS", "Vercel"],
+    description: "Custom bakery storefront with a full-featured admin panel, empowering the owner to manage products, track and fulfill orders, and control inventory and content—streamlining day-to-day operations with an intuitive interface.",
+    technologies: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS", "Vercel"],
     githubUrl: "https://github.com/mosgood3/sourthebakery",
     liveUrl: "https://sourthebakery.com"
-  },
-  {
-    id: "6",
-    title: "Personal Portfolio Website",
-    description: "A modern, responsive portfolio website built with Next.js to showcase my full body of work across front-end design, back-end development, and full-stack applications. The site features interactive components, smooth animations, and detailed project case studies—highlighting my skills in UI/UX, API integration, data automation, and modern web technologies.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    githubUrl: "https://github.com/mosgood3/portfolio",
-    liveUrl: "https://mosgood.me"
   }
 ];
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden group">
+    <div className="bg-card rounded-xl border-2 border-ink shadow-retro hover:-translate-y-1 hover:shadow-retro-lg transition-all duration-150 overflow-hidden group">
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-200 mb-3 group-hover:text-white transition-colors">{project.title}</h3>
-        <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300 transition-colors">{project.description}</p>
-        
+        <h3 className="font-display text-xl font-bold text-ink mb-3">{project.title}</h3>
+        <p className="text-ink-soft mb-4 leading-relaxed">{project.description}</p>
+
         <div className="mb-4">
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-blue-500/20 text-blue-300 border border-blue-400/30 text-sm rounded-full font-medium backdrop-blur-sm hover:bg-blue-500/30 transition-all duration-200"
+                className="px-3 py-1 bg-mustard/30 text-ink border border-ink text-sm rounded-full font-medium"
               >
                 {tech}
               </span>
             ))}
           </div>
         </div>
-        
-        <div className="flex gap-3 pt-2">
+
+        <div className="flex gap-4 pt-2">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-400 hover:text-gray-200 transition-colors"
+              className="flex items-center gap-2 font-display font-semibold text-ink hover:text-rust transition-colors"
               aria-label={`View ${project.title} source code on GitHub`}
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -84,7 +83,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium"
+              className="flex items-center gap-2 font-display font-semibold text-teal hover:text-teal-dark transition-colors"
               aria-label={`View ${project.title} live demo`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,32 +100,21 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects({ projects = defaultProjects }: ProjectsProps) {
   return (
-    <section 
-      id="projects" 
-      className="relative py-24 overflow-hidden"
-      style={{
-        background: `
-          linear-gradient(to bottom, #1e1b4b 0%, #0f0a1a 50%, #000000 100%),
-          radial-gradient(circle at 40% 30%, #3730a3 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, #1e40af 0%, transparent 50%),
-          radial-gradient(circle at 20% 80%, #7c3aed 0%, transparent 50%)
-        `,
-      }}
+    <section
+      id="projects"
+      className="relative py-24 overflow-hidden bg-cream"
     >
-      {/* Animated stars background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-3/4 w-1.5 h-1.5 bg-blue-300 rounded-full opacity-60 animate-pulse delay-300"></div>
-        <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-white rounded-full opacity-50 animate-pulse delay-1800"></div>
-        <div className="absolute top-1/6 left-1/2 w-2 h-2 bg-purple-300 rounded-full opacity-40 animate-pulse delay-2400"></div>
-      </div>
-      
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Featured Projects</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills in full-stack development, 
-            UI/UX design, and problem-solving.
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold text-ink mb-4">Featured Projects</h2>
+          <div className="flex justify-center gap-1.5 mb-6">
+            <span className="w-10 h-2 rounded-full bg-rust"></span>
+            <span className="w-10 h-2 rounded-full bg-mustard"></span>
+            <span className="w-10 h-2 rounded-full bg-teal"></span>
+          </div>
+          <p className="text-lg text-ink-soft max-w-2xl mx-auto">
+            A mix of data engineering work and full-stack products I&apos;ve shipped &mdash;
+            from lakehouse pipelines to production SaaS.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

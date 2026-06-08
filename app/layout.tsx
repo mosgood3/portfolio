@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Rokkitt, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Rokkitt({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const body = Work_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Matthew Osgood - Data Developer Portfolio",
-  description: "Experienced cata developer specializing in Firebase, Next.js, and modern web technologies. View my projects and get in touch for collaboration opportunities.",
-  keywords: ["Data Developer", "React", "Next.js", "TypeScript", "Web Development", "Portfolio"],
+  metadataBase: new URL("https://mosgood.me"),
+  title: "Matthew Osgood - Data Engineer Portfolio",
+  description: "Data Engineer with 3+ years building production ETL pipelines and lakehouse architectures with PySpark, Microsoft Fabric, and Delta Lake. View my projects and get in touch.",
+  keywords: ["Data Engineer", "PySpark", "Microsoft Fabric", "Delta Lake", "ETL", "Lakehouse", "SQL", "Next.js", "Portfolio"],
   authors: [{ name: "Matthew Osgood" }],
   creator: "Matthew Osgood",
   publisher: "Matthew Osgood",
@@ -24,8 +26,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://mosgood.me",
-    title: "Matthew Osgood - Data Developer Portfolio",
-    description: "Experienced data developer specializing in React, Next.js, and modern web technologies.",
+    title: "Matthew Osgood - Data Engineer Portfolio",
+    description: "Data Engineer specializing in PySpark, Microsoft Fabric, Delta Lake, and large-scale ETL pipelines in financial services.",
     siteName: "Matthew Osgood Portfolio",
     images: [
       {
@@ -48,9 +50,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
 };
 
 export default function RootLayout({
@@ -61,16 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{
-          background: `
-            radial-gradient(ellipse at top, #1e1b4b 0%, #0f0a1a 50%, #000000 100%),
-            radial-gradient(circle at 20% 80%, #3730a3 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, #1e40af 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, #7c3aed 0%, transparent 50%)
-          `,
-          minHeight: '100vh',
-        }}
+        className={`${display.variable} ${body.variable} antialiased bg-cream text-ink min-h-screen`}
       >
         <Navbar />
         <main>

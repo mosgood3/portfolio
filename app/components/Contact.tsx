@@ -12,49 +12,38 @@ const defaultContactInfo: ContactInfo = {
 
 export default function Contact({ contactInfo = defaultContactInfo }: ContactProps) {
   return (
-    <section 
-      id="contact" 
-      className="relative py-24 overflow-hidden"
-      style={{
-        background: `
-          linear-gradient(to bottom, #000000 0%, #0f0a1a 50%, #1e1b4b 100%),
-          radial-gradient(circle at 60% 20%, #3730a3 0%, transparent 50%),
-          radial-gradient(circle at 20% 60%, #1e40af 0%, transparent 50%),
-          radial-gradient(circle at 80% 80%, #7c3aed 0%, transparent 50%)
-        `,
-      }}
+    <section
+      id="contact"
+      className="relative py-24 overflow-hidden bg-sand border-t-2 border-ink"
     >
-      {/* Animated stars background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/5 left-4/5 w-1 h-1 bg-white rounded-full opacity-70 animate-pulse delay-400"></div>
-        <div className="absolute top-4/5 left-1/5 w-1.5 h-1.5 bg-purple-300 rounded-full opacity-50 animate-pulse delay-1600"></div>
-        <div className="absolute top-2/5 left-3/5 w-1 h-1 bg-blue-300 rounded-full opacity-60 animate-pulse delay-2800"></div>
-      </div>
-      
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Get In Touch</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            I&apos;m always interested in new opportunities and collaborations. 
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold text-ink mb-4">Get In Touch</h2>
+          <div className="flex justify-center gap-1.5 mb-6">
+            <span className="w-10 h-2 rounded-full bg-rust"></span>
+            <span className="w-10 h-2 rounded-full bg-mustard"></span>
+            <span className="w-10 h-2 rounded-full bg-teal"></span>
+          </div>
+          <p className="text-lg text-ink-soft max-w-2xl mx-auto">
+            I&apos;m always interested in new opportunities and collaborations.
             Feel free to reach out if you&apos;d like to work together!
           </p>
         </div>
 
-        <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 text-center">
+        <div className="bg-card rounded-xl border-2 border-ink shadow-retro-lg p-8 text-center">
           <div className="mb-8">
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">Let&apos;s Connect</h3>
-            <p className="text-gray-300 mb-6">
-              Whether you have a project in mind, want to discuss opportunities, 
+            <h3 className="font-display text-2xl font-bold text-ink mb-4">Let&apos;s Connect</h3>
+            <p className="text-ink-soft mb-6">
+              Whether you have a project in mind, want to discuss opportunities,
               or just want to say hello, I&apos;d love to hear from you.
             </p>
           </div>
 
           <div className="space-y-8">
-            <div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-3 bg-rust text-cream px-8 py-4 rounded-lg border-2 border-ink shadow-retro font-display font-bold text-lg hover:bg-rust-dark hover:-translate-y-0.5 hover:shadow-retro-lg transition-all duration-150"
                 aria-label="Send email"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,15 +51,27 @@ export default function Contact({ contactInfo = defaultContactInfo }: ContactPro
                 </svg>
                 {contactInfo.email}
               </a>
+              <a
+                href="/Matthew_Osgood_Resume-2.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 bg-teal text-cream px-8 py-4 rounded-lg border-2 border-ink shadow-retro font-display font-bold text-lg hover:bg-teal-dark hover:-translate-y-0.5 hover:shadow-retro-lg transition-all duration-150"
+                aria-label="Download my resume (PDF)"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Résumé
+              </a>
             </div>
 
-            <div className="flex justify-center gap-8">
+            <div className="flex justify-center gap-6 flex-wrap">
               {contactInfo.linkedin && (
                 <a
                   href={contactInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors font-medium p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10"
+                  className="flex items-center gap-2 font-display font-semibold text-ink hover:text-rust transition-colors p-3 bg-cream rounded-lg border-2 border-ink shadow-retro hover:-translate-y-0.5 transition-all duration-150"
                   aria-label="LinkedIn profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -85,7 +86,7 @@ export default function Contact({ contactInfo = defaultContactInfo }: ContactPro
                   href={contactInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-gray-200 transition-colors font-medium p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10"
+                  className="flex items-center gap-2 font-display font-semibold text-ink hover:text-rust transition-colors p-3 bg-cream rounded-lg border-2 border-ink shadow-retro hover:-translate-y-0.5 transition-all duration-150"
                   aria-label="GitHub profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -100,7 +101,7 @@ export default function Contact({ contactInfo = defaultContactInfo }: ContactPro
                   href={contactInfo.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors font-medium p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10"
+                  className="flex items-center gap-2 font-display font-semibold text-ink hover:text-rust transition-colors p-3 bg-cream rounded-lg border-2 border-ink shadow-retro hover:-translate-y-0.5 transition-all duration-150"
                   aria-label="Twitter profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
